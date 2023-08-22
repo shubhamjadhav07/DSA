@@ -32,3 +32,4 @@ int main() {
    minnum(arr,size);
     return 0;
 }
+
