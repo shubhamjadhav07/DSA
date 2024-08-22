@@ -1,21 +1,21 @@
 class Solution {
     public double myPow(double x, int n) {
-        return binaryExp(x, (long) n);
-    }
+      double ans = 1.0;
+        long nTemp = n;
 
-    private double binaryExp(double x, long n) {
-        if (n == 0) {
-            return 1;
+        if(n < 0)
+            nTemp = nTemp * -1;
+
+        while(nTemp > 0){
+            if(nTemp % 2 == 0){
+                x *= x;
+                nTemp /=2;
+            }
+            else{
+                ans *= x;
+                nTemp--;
+            }
         }
-       
-        if (n < 0) {
-            return 1.0 / binaryExp(x, -n);
-        }
-       
-        if (n % 2 == 1) {
-            return x * binaryExp(x * x, (n - 1) / 2);
-        } else {
-            return binaryExp(x * x, n / 2);
-        }
+        return n < 0 ? 1 / ans : ans;   
     }
 }
