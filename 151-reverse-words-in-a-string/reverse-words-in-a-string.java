@@ -13,7 +13,7 @@ class Solution {
     }
 
     public String reverseWords(String s) {
-        s=s.strip();//remove all leading and trailing spaces
+        s=s.strip();
     
         StringBuilder sb = new StringBuilder(s).reverse(); 
          
@@ -25,17 +25,15 @@ class Solution {
             int j = i;
             while(i<sb.length()&&sb.charAt(i)!=' '){
              
-                i++; //moving i till space is found
+                i++; 
 
             }
-            //we are at space index now
-            int e = i-1; //go back to where there was a letter
-
-            reverse(sb,j,e); //got both index and reversed
+            int e = i-1; 
+            reverse(sb,j,e); 
 
 
         }
-        //replace all spaces with single space
+        
         return sb.toString().replaceAll(" +"," "); 
     }
 }
